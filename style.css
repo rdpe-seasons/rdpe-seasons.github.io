@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header {
+    width: 100%;
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+header img {
+    max-width: 150px;
+    height: auto;
+}
+.album-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+}
+.album {
+    border: 1px solid #ccc;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.album img {
+    max-width: 100%;
+    height: auto;
+}
+.album-title {
+    font-weight: bold;
+    margin: 10px 0;
+}
+.songs {
+    list-style-type: none;
+    padding: 0;
+}
+.songs li {
+    margin: 5px 0;
+}
+.songs audio {
+    width: 100%;
+    margin-top: 5px;
+}
+.description {
+    margin: 10px 0;
+}
+.links a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #0073e6;
+}

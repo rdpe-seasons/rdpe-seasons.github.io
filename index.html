@@ -3,9 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Music Albums</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            width: 100%;
+            background-color: #1f1f1f;
+            padding: 20px;
+            text-align: center;
+        }
+        header img {
+            max-width: 150px;
+            height: auto;
+        }
+        .album-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+            padding-bottom: 100px;
+            width: 90%;
+            height: 90%;
+        }
+        .album {
+            border-radius: 10px;
+            border: 1px solid #333;
+            padding: 15px;
+            background-color: #1f1f1f;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .album-cover {
+            max-width: 150px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .album-title {
+            font-weight: bold;
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        .songs {
+            list-style-type: none;
+            padding: 0;
+        }
+        .song-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px 0;
+            padding: 5px 0;
+            border-bottom: 1px solid #333;
+        }
+        .song-title {
+            flex-grow: 1;
+        }
+        .song-length {
+            margin-left: 10px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+        .play-btn {
+            background-color: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .description {
+            margin: 10px 0;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+        .links a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #0073e6;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #1f1f1f;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        footer .current-song {
+            font-size: 1em;
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+        footer .controls {
+            margin-right: 20px;
+        }
+        footer .controls button {
+            background-color: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        /* Skeleton styles for unfinished albums */
+        .skeleton {
+            background-color: #2a2a2a;
+            padding: 10px;
+            height: 100%;
+        }
+        .skeleton img,
+        .skeleton div {
+            background-color: #333;
+            height: 20px;
+            margin-bottom: 10px;
+        }
+        .skeleton img {
+            height: 150px;
+        }
+    </style>
 </head>
 <body>
-    
+    <header>
+        <img src="logo.img" alt="Logo">
+    </header>
+    <div class="album-container">
+        <!-- Album 1 -->
+        <div class="album">
+            <div class="album-title">Album 1</div>
+            <img class="album-cover" src="scr/albums/Спой мне/logo.png" alt="Album 1 Cover">
+            <ul class="songs">
+                <li class="song-item">
+                    <span class="song-title">Интро</span>
+                    <span class="song-length">1:25</span>
+                    <button class="play-btn" onclick="playSong('scr/albums/Спой мне/songs/Интро.mp3', 'Интро')">▶</button>
+                </li>
+                <li class="song-item">
+                    <span class="song-title">Ты уже взрослый</span>
+                    <span class="song-length">2:39</span>
+                    <button class="play-btn" onclick="playSong('scr/albums/Спой мне/songs/Ты уже взрослый.mp3', 'Ты уже взрослый')">▶</button>
+                </li>
+                <li class="song-item">
+                    <span class="song-title">Золотой обелиск</span>
+                    <span class="song-length">2:26</span>
+                    <button class="play-btn" onclick="playSong('scr/albums/Спой мне/songs/Золотой обелиск.mp3', 'Золотой обелиск')">▶</button>
+                </li>
+            </ul>
+            <div class="description">
+                Описание альбома 1.
+            </div>
+            <div class="links">
+                <a href="#">Spotify</a>
+                <a href="#">Apple Music</a>
+                <a href="#">Yandex Music</a>
+            </div>
+        </div>
+        <!-- Album 2 (Skeleton) -->
+        <div class="album skeleton">
+            <img class="album-cover" src="#" alt="">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <!-- Album 3 (Skeleton) -->
+        <div class="album skeleton">
+            <img class="album-cover" src="#" alt="">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <!-- Album 4 (Skeleton) -->
+        <div class="album skeleton">
+            <img class="album-cover" src="#" alt="">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <footer>
+        <span class="current-song">No song playing</span>
+        <div class="controls">
+            <button onclick="playPause()">⏯</button>
+            <button onclick="stopSong()">⏹</button>
+        </div>
+        <audio id="audio-player" controls style="display: none;"></audio>
+    </footer>
+
+    <script>
+        const audioPlayer = document.getElementById('audio-player');
+        const currentSong = document.querySelector('.current-song');
+
+        function playSong(src, title) {
+            audioPlayer.src = src;
+            audioPlayer.play();
+            currentSong.textContent = title;
+        }
+
+        function playPause() {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+            } else {
+                audioPlayer.pause();
+            }
+        }
+
+        function stopSong() {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+            currentSong.textContent = 'No song playing';
+        }
+    </script>
 </body>
 </html>
