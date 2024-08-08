@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,16 +16,19 @@
             flex-direction: column;
             align-items: center;
         }
+
         header {
-            width: 100%;
             background-color: #1f1f1f;
-            padding: 20px;
+            height: 50px;
+            width: 100%;
             text-align: center;
         }
+
         header img {
             max-width: 150px;
             height: auto;
         }
+
         .album-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -35,66 +39,98 @@
             width: 90%;
             height: 90%;
         }
+
         .album {
             border-radius: 10px;
-            border: 1px solid #333;
             padding: 15px;
             background-color: #1f1f1f;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
+
+        .album-1 {
+            background-image: url('scr/albums/SpoyMne/logo-transparent.png');
+            background-position: 50% 50%;
+        }
+
+        .album-info{
+            display: flex;
+        }
+
         .album-cover {
             max-width: 150px;
             height: auto;
             border-radius: 10px;
         }
+
+        .description {
+            margin-top: 0;
+            margin-left: 15px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        .description p {
+            margin-top: 0;
+        }
+
         .album-title {
             font-weight: bold;
             margin: 10px 0;
             font-size: 1.2em;
+            color: #ffffff;
         }
+
         .songs {
             list-style-type: none;
             padding: 0;
         }
+
         .song-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin: 5px 0;
             padding: 5px 0;
-            border-bottom: 1px solid #333;
+            /* border-bottom: 1px solid #333; */
         }
+
         .song-title {
             flex-grow: 1;
         }
+
         .song-length {
             margin-left: 10px;
             font-size: 0.9em;
             color: #ccc;
         }
+
         .play-btn {
             background-color: transparent;
             border: none;
             color: #ffffff;
             font-size: 1.2em;
             cursor: pointer;
-            margin-left: 10px;
+            margin-right: 10px;
         }
-        .description {
-            margin: 10px 0;
-            font-size: 0.9em;
-            color: #ccc;
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
+
         .links a {
             margin-right: 10px;
             text-decoration: none;
-            color: #0073e6;
+            color: #ccc;
         }
+
         .links a:hover {
             text-decoration: underline;
         }
+
         footer {
             position: fixed;
             bottom: 0;
@@ -105,14 +141,17 @@
             align-items: center;
             justify-content: space-between;
         }
+
         footer .current-song {
             font-size: 1em;
             flex-grow: 1;
             margin-left: 10px;
         }
+
         footer .controls {
             margin-right: 20px;
         }
+
         footer .controls button {
             background-color: transparent;
             border: none;
@@ -120,52 +159,69 @@
             font-size: 1.2em;
             cursor: pointer;
         }
+
         /* Skeleton styles for unfinished albums */
         .skeleton {
             background-color: #2a2a2a;
             padding: 10px;
-            height: 100%;
         }
+
         .skeleton img,
         .skeleton div {
             background-color: #333;
             height: 20px;
             margin-bottom: 10px;
         }
-        .skeleton img {
-            height: 150px;
+
+        .skeleton-album-cover{
+            width: 150px;
+            height: 150px !important;
+            border-radius: 10px;
+        }
+
+        .skeleton-album-cover p{
+            margin-top: 65px;
+            color: #ccc;
+            text-align: center;
         }
     </style>
 </head>
+
 <body>
     <header>
         <img src="logo.img" alt="Logo">
     </header>
     <div class="album-container">
         <!-- Album 1 -->
-        <div class="album">
-            <div class="album-title">Album 1</div>
-            <img class="album-cover" src="scr/albums/Спой мне/logo.png" alt="Album 1 Cover">
+        <div class="album album-1">
+            <div class="album-info">
+                <img class="album-cover" src="scr/albums/SpoyMne/logo.png" alt="Спой мне Cover">
+                <div class="description">
+                    <div class="album-title">Спой мне</div>
+                    <p>Pop</p>
+                    <p>Альбом, вдохновлённый всем. От рок-баллад в стиле Metallica до адового хип-хопа в стиле Eminem. Именно на этой легендарной пластинке были выпущены такие хиты, как "Интро", "Ты уже взрослый" и "Золотой обелиск".</p>
+                </div>
+            </div>
             <ul class="songs">
                 <li class="song-item">
+                    <button class="play-btn"
+                        onclick="playSong('scr/albums/SpoyMne/songs/Интро.mp3', 'Интро')">▶</button>
                     <span class="song-title">Интро</span>
                     <span class="song-length">1:25</span>
-                    <button class="play-btn" onclick="playSong('scr/albums/Спой мне/songs/Интро.mp3', 'Интро')">▶</button>
                 </li>
                 <li class="song-item">
+                    <button class="play-btn"
+                        onclick="playSong('scr/albums/SpoyMne/songs/Ты уже взрослый.mp3', 'Ты уже взрослый')">▶</button>
                     <span class="song-title">Ты уже взрослый</span>
                     <span class="song-length">2:39</span>
-                    <button class="play-btn" onclick="playSong('scr/albums/Спой мне/songs/Ты уже взрослый.mp3', 'Ты уже взрослый')">▶</button>
                 </li>
                 <li class="song-item">
+                    <button class="play-btn"
+                        onclick="playSong('scr/albums/SpoyMne/songs/Золотой обелиск.mp3', 'Золотой обелиск')">▶</button>
                     <span class="song-title">Золотой обелиск</span>
                     <span class="song-length">2:26</span>
-                    <button class="play-btn" onclick="playSong('scr/albums/Спой мне/songs/Золотой обелиск.mp3', 'Золотой обелиск')">▶</button>
                 </li>
             </ul>
-            <div class="description">
-                Описание альбома 1.
-            </div>
             <div class="links">
                 <a href="#">Spotify</a>
                 <a href="#">Apple Music</a>
@@ -174,21 +230,27 @@
         </div>
         <!-- Album 2 (Skeleton) -->
         <div class="album skeleton">
-            <img class="album-cover" src="#" alt="">
+            <div class="skeleton-album-cover">
+                <p>Coming soon</p>
+            </div>
             <div></div>
             <div></div>
             <div></div>
         </div>
         <!-- Album 3 (Skeleton) -->
         <div class="album skeleton">
-            <img class="album-cover" src="#" alt="">
+            <div class="skeleton-album-cover">
+                <p>Coming soon</p>
+            </div>
             <div></div>
             <div></div>
             <div></div>
         </div>
         <!-- Album 4 (Skeleton) -->
         <div class="album skeleton">
-            <img class="album-cover" src="#" alt="">
+            <div class="skeleton-album-cover">
+                <p>Coming soon</p>
+            </div>
             <div></div>
             <div></div>
             <div></div>
@@ -229,4 +291,5 @@
         }
     </script>
 </body>
+
 </html>
